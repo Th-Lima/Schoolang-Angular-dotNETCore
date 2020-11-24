@@ -1,0 +1,31 @@
+nav{
+  background-color: var(--secondary-color);
+  height: 95px;
+}
+.logo{
+  font-size: xx-large;
+}
+
+a{
+  color: black;
+}
+.dropdown-menu{
+  background-color: var( --third-color);
+}
+.active{
+  border: 1px solid var(--main-color);
+}
+
+.principal-li:hover{
+    border-top: 1px solid var(--main-color);
+  filter: brightness(100%);
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      transform: scale(1.3);
+      transition: 0.5s;
+      margin-right: 50px;
+}
+
+
+
+

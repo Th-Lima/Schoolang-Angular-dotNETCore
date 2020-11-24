@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "/Schoolang/node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+:root{
+  --secondary-color: #a1f1ffd2;
+  --main-color: #363636;
+  --third-color: #ffffff;
+  --fourth-color: #a1f1ff17;
+}
+.modal-content{
+  background-color:var(--main-color);
+}
+body{
+    background-color:var(--main-color);
+}
+h1{
+  color:var(--secondary-color);
+}
+hr{
+  background-color:var(--secondary-color);
+}
+h2{
+  color:var(--secondary-color);
+}
+label{
+  color:var(--secondary-color);
+}
+p{
+  color: var(--secondary-color);
+}
+li{
+  color:var(--secondary-color);
+}
+thead{
+  background-color: var(--fourth-color);
+}
+tr{
+  color: var(--secondary-color);
+  font-size: large;
+}
+td{
+  color: var(--third-color);
+}
