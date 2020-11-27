@@ -7,6 +7,7 @@ namespace Schoolang_WebAPI.Data
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Language> Languages { get; set; }
@@ -19,20 +20,20 @@ namespace Schoolang_WebAPI.Data
 
             builder.Entity<Teacher>()
                 .HasData(new List<Teacher>(){
-                    new Teacher(1, "Lauro", "sdfsdfdsf"),
-                    new Teacher(2, "Roberto", "asdasdasd"),
-                    new Teacher(3, "Ronaldo", "asdadasd"),
-                    new Teacher(4, "Rodrigo", "asdasdasd"),
-                    new Teacher(5, "Alexandre", "afafafas"),
+                    new Teacher(1, "Lauro"),
+                    new Teacher(2, "Roberto"),
+                    new Teacher(3, "Ronaldo"),
+                    new Teacher(4, "Rodrigo"),
+                    new Teacher(5, "Alexandre"),
                 });
 
             builder.Entity<Language>()
                 .HasData(new List<Language>{
-                    new Language(1, "Matemática", 1),
-                    new Language(2, "Física", 2),
+                    new Language(1, "Francês", 1),
+                    new Language(2, "Italiano", 2),
                     new Language(3, "Português", 3),
                     new Language(4, "Inglês", 4),
-                    new Language(5, "Programação", 5)
+                    new Language(5, "Alemão", 5),
                 });
 
             builder.Entity<Student>()

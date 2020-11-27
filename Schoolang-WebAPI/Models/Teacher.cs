@@ -8,15 +8,14 @@ namespace Schoolang_WebAPI.Models
     public class Teacher
     {
         public Teacher() { }
-        public Teacher(int id, string name, string language)
+        public Teacher(int id, string name)
         {
             Id = id;
             Name = name;
-            Language = language;
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Language { get; set; }
+        public IEnumerable<Language> Language { get; set; }
     }
 }
