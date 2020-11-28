@@ -25,7 +25,9 @@ namespace Schoolang_WebAPI
                 options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
                 );
 
-            services.AddControllers();
+            services.AddControllers()
+                    //Ignore Infinity Looping
+                    .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddScoped<IRepository, Repository>();
         }
 

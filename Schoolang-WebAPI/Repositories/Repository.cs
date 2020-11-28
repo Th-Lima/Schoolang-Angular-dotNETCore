@@ -31,11 +31,11 @@ namespace Schoolang_WebAPI.Repositories
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public async Task<Student[]> GetAllStudentsAsync(bool includeLanguage = false)
+        public async Task<Student[]> GetAllStudentsAsync(bool includeTeacher = false)
         {
             IQueryable<Student> query = _context.Students;
 
-            if (includeLanguage)
+            if (includeTeacher)
             {
                 query = query.Include(s => s.StudentLanguages)
                              .ThenInclude(sl => sl.Language)

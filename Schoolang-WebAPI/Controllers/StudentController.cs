@@ -23,7 +23,7 @@ namespace Schoolang_WebAPI.Controllers
         {
             try
             {
-                var result = await _repository.GetAllStudentsAsync(true);
+                var result = await _repository.GetAllStudentsAsync(false);
 
                 return Ok(result);
             }
