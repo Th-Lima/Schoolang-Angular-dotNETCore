@@ -64,6 +64,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.FirstOrDefaultAsync();
         }
+        
         public async Task<Student[]> GetStudentsAsyncByLanguageId(int languageId, bool includeLanguage)
         {
             IQueryable<Student> query = _context.Students;
@@ -82,7 +83,7 @@ namespace Schoolang_WebAPI.Repositories
             return await query.ToArrayAsync();
         }
 
-        public async Task<Teacher[]> GetTeacherssAsyncByStudentId(int studentId, bool includeLanguage)
+        public async Task<Teacher[]> GetTeachersAsyncByStudentId(int studentId, bool includeLanguage)
         {
             IQueryable<Teacher> query = _context.Teachers;
 

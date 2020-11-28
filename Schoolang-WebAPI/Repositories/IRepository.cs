@@ -19,6 +19,6 @@ namespace Schoolang_WebAPI.Repositories
         //TEACHER
         Task<Teacher[]> GetAllTeachersAsync(bool includeStudent);
         Task<Teacher> GetTeachersAsyncById(int teacherId, bool includeStudent);
-        Task<Teacher[]> GetTeacherssAsyncByStudentId(int studentId, bool includeLanguage);
+        Task<Teacher[]> GetTeachersAsyncByStudentId(int studentId, bool includeLanguage);
     }
 }

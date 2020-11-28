@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Schoolang_WebAPI.Repositories;
@@ -34,17 +32,32 @@ namespace Schoolang_WebAPI.Controllers
         }
 
         [HttpGet("{studentId}")]
-        public async Task<IActionResult> GetByStudentId(int id)
+        public async Task<IActionResult> GetByStudentId(int studentId)
         {
             try
             {
-                var result = await _repository.GetStudentsAsyncById(id, true);
+                var result = await _repository.GetStudentsAsyncById(studentId, true);
 
                 return Ok(result);
             }
             catch (Exception)
             {
                 return this.StatusCode(500, "Banco de dados falhou!");
+            }
+        }
+
+        [HttpGet("byLanguage/{languageId}")]
+        public async Task<IActionResult> GetByLanguageId(int languageId)
+        {
+            try
+            {
+                var result = await _repository.GetStudentsAsyncByLanguageId(languageId, false);
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro { e.Message}");
             }
         }
     }
