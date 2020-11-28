@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schoolang_WebAPI.Data;
+using Schoolang_WebAPI.Repositories;
 
 namespace Schoolang_WebAPI
 {
@@ -25,6 +26,7 @@ namespace Schoolang_WebAPI
                 );
 
             services.AddControllers();
+            services.AddScoped<IRepository, Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
