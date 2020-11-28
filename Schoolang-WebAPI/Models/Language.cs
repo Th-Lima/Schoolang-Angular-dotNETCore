@@ -20,5 +20,6 @@ namespace Schoolang_WebAPI.Models
         public string Name { get; set; }
         public int TeacherId { get; set; }
         public Teacher Teacher { get; set; }
+        public IEnumerable<StudentLanguage> StudentsLanguages { get; set; }
     }
 }

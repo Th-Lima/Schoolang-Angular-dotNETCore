@@ -31,7 +31,7 @@ namespace Schoolang_WebAPI.Repositories
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public async Task<Student[]> GetAllAlunosAsync(bool includeLanguage = false)
+        public async Task<Student[]> GetAllStudentsAsync(bool includeLanguage = false)
         {
             IQueryable<Student> query = _context.Students;
 
@@ -47,7 +47,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.ToArrayAsync();
         }
-        public async Task<Student> GetAlunoAsyncById(int studentId, bool includeLanguage)
+        public async Task<Student> GetStudentsAsyncById(int studentId, bool includeLanguage)
         {
             IQueryable<Student> query = _context.Students;
 
@@ -64,7 +64,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.FirstOrDefaultAsync();
         }
-        public async Task<Student[]> GetAlunosAsyncByDisciplinaId(int languageId, bool includeLanguage)
+        public async Task<Student[]> GetStudentsAsyncByLanguageId(int languageId, bool includeLanguage)
         {
             IQueryable<Student> query = _context.Students;
 
@@ -82,7 +82,7 @@ namespace Schoolang_WebAPI.Repositories
             return await query.ToArrayAsync();
         }
 
-        public async Task<Teacher[]> GetProfessoresAsyncByAlunoId(int studentId, bool includeLanguage)
+        public async Task<Teacher[]> GetTeacherssAsyncByStudentId(int studentId, bool includeLanguage)
         {
             IQueryable<Teacher> query = _context.Teachers;
 
@@ -99,7 +99,7 @@ namespace Schoolang_WebAPI.Repositories
             return await query.ToArrayAsync();
         }
 
-        public async Task<Teacher[]> GetAllProfessoresAsync(bool includeLanguages = true)
+        public async Task<Teacher[]> GetAllTeachersAsync(bool includeLanguages = true)
         {
             IQueryable<Teacher> query = _context.Teachers;
 
@@ -113,7 +113,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.ToArrayAsync();
         }
-        public async Task<Teacher> GetProfessorAsyncById(int teacherId, bool includeLanguages = true)
+        public async Task<Teacher> GetTeachersAsyncById(int teacherId, bool includeLanguages = true)
         {
             IQueryable<Teacher> query = _context.Teachers;
 

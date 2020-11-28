@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Schoolang_WebAPI.Repositories
 {
-    interface IRepository
+    public interface IRepository
     {
         //GENERAL
         void Add<T>(T entity) where T : class;
@@ -12,13 +12,13 @@ namespace Schoolang_WebAPI.Repositories
         Task<bool> SaveChangesAsync();
 
         //STUDENT
-        Task<Student[]> GetAllAlunosAsync(bool includeTeacher);
-        Task<Student[]> GetAlunosAsyncByDisciplinaId(int languageId, bool includeLanguage);
-        Task<Student> GetAlunoAsyncById(int studentId, bool includeTeacher);
+        Task<Student[]> GetAllStudentsAsync(bool includeTeacher);
+        Task<Student[]> GetStudentsAsyncByLanguageId(int languageId, bool includeLanguage);
+        Task<Student> GetStudentsAsyncById(int studentId, bool includeTeacher);
 
         //TEACHER
-        Task<Teacher[]> GetAllProfessoresAsync(bool includeStudent);
-        Task<Teacher> GetProfessorAsyncById(int teacherId, bool includeStudent);
-        Task<Teacher[]> GetProfessoresAsyncByAlunoId(int studentId, bool includeLanguage);
+        Task<Teacher[]> GetAllTeachersAsync(bool includeStudent);
+        Task<Teacher> GetTeachersAsyncById(int teacherId, bool includeStudent);
+        Task<Teacher[]> GetTeacherssAsyncByStudentId(int studentId, bool includeLanguage);
     }
 }

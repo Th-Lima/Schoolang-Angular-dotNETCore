@@ -16,6 +16,6 @@ namespace Schoolang_WebAPI.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Language> Language { get; set; }
+        public IEnumerable<Language> Languages { get; set; }
     }
 }
