@@ -14,18 +14,22 @@ namespace Schoolang_WebAPI.Repositories
         {
             _context = context;
         }
+
         public void Add<T>(T entity) where T : class
         {
             _context.Add(entity);
         }
+
         public void Update<T>(T entity) where T : class
         {
             _context.Update(entity);
         }
+
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);
         }
+
         public async Task<bool> SaveChangesAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
@@ -47,6 +51,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.ToArrayAsync();
         }
+
         public async Task<Student> GetStudentsAsyncById(int studentId, bool includeLanguage)
         {
             IQueryable<Student> query = _context.Students;
@@ -114,6 +119,7 @@ namespace Schoolang_WebAPI.Repositories
 
             return await query.ToArrayAsync();
         }
+
         public async Task<Teacher> GetTeachersAsyncById(int teacherId, bool includeLanguages = true)
         {
             IQueryable<Teacher> query = _context.Teachers;
