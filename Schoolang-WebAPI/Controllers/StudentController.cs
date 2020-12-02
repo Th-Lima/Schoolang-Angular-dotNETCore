@@ -10,9 +10,9 @@ namespace Schoolang_WebAPI.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly IRepository _repository;
+        private readonly IStudentRepository _repository;
 
-        public StudentController(IRepository repository)
+        public StudentController(IStudentRepository repository)
         {
             _repository = repository;
         }
