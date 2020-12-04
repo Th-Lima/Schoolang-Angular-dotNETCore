@@ -1,9 +1,10 @@
+import { ProfileComponent } from './components/profile/profile.component';
+import { StudentComponent } from './components/student/student.component';
+import { TeachersComponent } from './components/teacher/teachers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
-import { TeachersComponent } from './teacher/teachers.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StudentComponent } from './student/student.component';
 
 
 const routes: Routes = [
