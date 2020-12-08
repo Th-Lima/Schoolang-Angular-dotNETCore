@@ -10,15 +10,27 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
-  public getStudent = `${environment.webApiUrl}/${actions.webApi.getStudent}`;
+  public url = `${environment.webApiUrl}/${actions.webApi.Student}`;
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Student[]>{
-    return this.http.get<Student[]>(`${this.getStudent}`);
+    return this.http.get<Student[]>(`${this.url}`);
   }
 
   getById(id: number): Observable<Student>{
-    return this.http.get<Student>(`${this.getStudent}/${id}`);
+    return this.http.get<Student>(`${this.url}/${id}`);
+  }
+
+  post(student: Student) {
+    return this.http.post(`${this.url}`, student);
+  }
+
+  put(id: number, student: Student) {
+    return this.http.put(`${this.url}/${id}`, student);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

@@ -48,14 +48,27 @@ export class StudentComponent implements OnInit {
 
   createForm(): void{
     this.studentForm = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
       surname: ['', Validators.required],
       cellphone: ['', Validators.required]
     });
   }
 
+  saveStudent(student: Student): void {
+    this.studentService.put(student.id, student).subscribe(
+      (student: Student) => {
+        // console.log(student);
+        this.loadStudents();
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    );
+  }
+
   studentSubmit(): void {
-    console.info(this.studentForm.value);
+    this.saveStudent(this.studentForm.value);
   }
 
   studentSelect(student: Student): void {

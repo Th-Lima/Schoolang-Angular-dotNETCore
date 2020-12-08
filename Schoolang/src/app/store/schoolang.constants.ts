@@ -1,5 +1,6 @@
 export const actions = {
   webApi: {
-    getStudent: 'student',
+    Student: 'student',
+    getTeacher: 'teacher',
   }
 };
