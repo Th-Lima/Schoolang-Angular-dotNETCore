@@ -2,6 +2,7 @@ import { Teacher } from './../../models/Teacher';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { TeacherService } from 'src/app/service/teacher.service';
 
 @Component({
   selector: 'app-professores',
@@ -15,15 +16,39 @@ export class TeachersComponent implements OnInit {
   public tittle = 'Professores';
   public teacherSelected: Teacher;
 
-  public teachers = [
-    {id: 1, name: 'Lúcia', language: 'Inglês'},
-    {id: 2, name: 'Ana',  language: 'Francês'},
-    {id: 3, name: 'César', language: 'Italiano'},
-  ];
+  public teachers: Teacher[];
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService, private teacherService: TeacherService, private fb: FormBuilder)
+  {
+    this.createForm();
+  }
 
   ngOnInit() {
+    this.loadTeacher();
+  }
+
+  createForm(): void{
+    this.teacherForm = this.fb.group({
+      id: [''],
+      name: ['', Validators.required],
+    });
+  }
+
+  saveTeacher(teacher: Teacher): void {
+    this.teacherService.put(teacher.id, teacher).subscribe(
+      (teacher: Teacher) => {
+        // console.log(student);
+        this.loadTeacher();
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    );
+  }
+
+
+  teacherSubmit(): void{
+    this.saveTeacher(this.teacherForm.value);
   }
 
   openModal(template: TemplateRef<any>): void {
@@ -32,9 +57,21 @@ export class TeachersComponent implements OnInit {
 
   teacherSelect(teacher: Teacher): void{
     this.teacherSelected = teacher;
+    this.teacherForm.patchValue(teacher);
   }
 
   marOffTeacher(): void{
     this.teacherSelected = null;
+  }
+
+  loadTeacher(): void {
+    this.teacherService.getAll().subscribe(
+      (teacher: Teacher[]) => {
+        this.teachers = teacher;
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
   }
 }
