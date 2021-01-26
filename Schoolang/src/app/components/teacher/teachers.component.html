@@ -31,7 +31,10 @@
   <br>
 
  <div *ngIf="!teacherSelected">
-  <app-tittle [tittle]="tittle"></app-tittle>
+  <button class="btn btn-sm btn-outline-success" (click)="marOffTeacher()"> Cadastrar</button>
+  <br>
+  <app-tittle [tittle]="tittle"> </app-tittle>
+
   <table class="table table-hover">
     <thead>
       <tr>
