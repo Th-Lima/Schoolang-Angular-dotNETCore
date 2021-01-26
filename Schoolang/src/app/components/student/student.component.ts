@@ -42,6 +42,11 @@ export class StudentComponent implements OnInit {
     );
   }
 
+  registerStudent(): void{
+    this.studentSelected = new Student();
+    this.studentForm.patchValue(this.studentSelected);
+  }
+
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template);
   }

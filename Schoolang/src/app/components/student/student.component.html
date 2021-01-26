@@ -35,6 +35,9 @@
 
   </div>
   <div [ngClass]="{'col-sm-6': studentSelected, 'col-sm-12': !studentSelected}">
+    <br>
+    <button class="btn btn-sm btn-outline-success" (click)="registerStudent()"> Cadastrar</button>
+    <br>
     <app-tittle [tittle]="tittle"></app-tittle>
     <small style="color: white;">Selecione um aluno!</small>
     <table class="table table-hover">
