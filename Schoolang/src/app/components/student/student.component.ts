@@ -16,6 +16,7 @@ export class StudentComponent implements OnInit {
   public tittle = 'Alunos';
   public studentSelected: Student;
   public textSimple: string;
+  public mode = 'post';
 
   public students: Student[];
 
@@ -61,7 +62,9 @@ export class StudentComponent implements OnInit {
   }
 
   saveStudent(student: Student): void {
-    this.studentService.put(student.id, student).subscribe(
+    (student.id === 0) ? this.mode = 'post' : this.mode = 'put'
+
+    this.studentService[this.mode](student).subscribe(
       (student: Student) => {
         // console.log(student);
         this.loadStudents();

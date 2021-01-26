@@ -3,7 +3,7 @@
   <div class="col-sm-6" *ngIf="studentSelected">
     <div class="row">
       <div class="mr-3">
-        <app-tittle [tittle]="'Cód. Aluno: ' + studentSelected.id"></app-tittle>
+        <app-tittle [tittle]="(studentSelected.id === 0 ? 'Novo aluno' : 'Cód. Aluno: ' + studentSelected.id)"></app-tittle>
       </div>
       <div class="mt-4">
         <button class="btn btn-sm btn-outline-danger mr-auto" (click)="markOffStudent()"> Fechar x</button>
