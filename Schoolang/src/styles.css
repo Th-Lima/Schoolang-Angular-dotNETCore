@@ -9,8 +9,19 @@
 .modal-content{
   background-color:var(--main-color);
 }
-body{
-    background-color:var(--main-color);
+app-root{
+
+}
+
+body::after {
+  content: "";
+  background: url("./assets/globe-3.jpg") no-repeat;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 h1{
   color:var(--secondary-color);
