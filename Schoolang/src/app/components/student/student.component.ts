@@ -75,6 +75,18 @@ export class StudentComponent implements OnInit {
     );
   }
 
+  deleteStudent(id: number){
+      this.studentService.delete(id).subscribe(
+        (model: any) => {
+          console.log(`Deletado com suceso -> ${model}`)
+          this.loadStudents();
+        },
+        (error: any) => {
+          console.error(`Error ${error}`);
+        }
+      );
+  }
+
   studentSubmit(): void {
     this.saveStudent(this.studentForm.value);
   }

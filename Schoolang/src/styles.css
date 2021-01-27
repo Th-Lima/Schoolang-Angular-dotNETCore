@@ -9,9 +9,6 @@
 .modal-content{
   background-color:var(--main-color);
 }
-app-root{
-
-}
 
 body::after {
   content: "";
