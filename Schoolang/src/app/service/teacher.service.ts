@@ -26,8 +26,8 @@ export class TeacherService {
     return this.http.post(`${this.url}`, teacher);
   }
 
-  put(id: number, teacher: Teacher) {
-    return this.http.put(`${this.url}/${id}`, teacher);
+  put(teacher: Teacher) {
+    return this.http.put(`${this.url}/${teacher.id}`, teacher);
   }
 
   delete(id: number) {
