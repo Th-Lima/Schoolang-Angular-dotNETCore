@@ -123,7 +123,7 @@ namespace Schoolang_WebAPI.Controllers
 
                 if (await _repository.SaveChangesAsync())
                 {
-                    return Ok("Deletado com sucesso");
+                    return Ok(new { message = "Deletado" });
                 }
             }
             catch (Exception e)
