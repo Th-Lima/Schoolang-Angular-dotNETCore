@@ -15,6 +15,7 @@ export class TeachersComponent implements OnInit {
   public teacherForm: FormGroup;
   public tittle = 'Professores';
   public teacherSelected: Teacher;
+  public mode = 'post';
 
   public teachers: Teacher[];
 
@@ -35,7 +36,9 @@ export class TeachersComponent implements OnInit {
   }
 
   saveTeacher(teacher: Teacher): void {
-    this.teacherService.put(teacher.id, teacher).subscribe(
+    (teacher.id === 0) ? this.mode = 'post' : this.mode = 'put';
+
+    this.teacherService[this.mode](teacher).subscribe(
       (teacher: Teacher) => {
         // console.log(student);
         this.loadTeacher();
@@ -58,6 +61,11 @@ export class TeachersComponent implements OnInit {
   teacherSelect(teacher: Teacher): void{
     this.teacherSelected = teacher;
     this.teacherForm.patchValue(teacher);
+  }
+
+  newTeacher(){
+    this.teacherSelected = new Teacher();
+    this.teacherForm.patchValue(this.teacherSelected);
   }
 
   marOffTeacher(): void{
